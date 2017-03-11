@@ -1,0 +1,315 @@
+// Place all the styles related to the main controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+aside{
+  position: fixed;
+  top: 60px;
+  left: 0;
+  border: 1px solid lightgray;
+  height: 100vh;
+  width: 20%;
+  display: flex;
+  flex-direction: column;
+}
+
+aside>h3{
+ align-self: center;
+  margin: 20px;
+  color: rgba(255,161,45,0.85);
+  font-family: Arial;
+}
+
+aside>ul{
+  display: flex;
+  flex-direction: column;
+}
+
+aside>ul>li{
+  display: flex;
+  padding: 20px;
+  justify-content: space-between;
+}
+
+.main_header{
+  display: flex;
+  justify-content: flex-end;
+  padding: 10px;
+  background-color: lightgray;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 99vw;
+}
+
+
+.main_header>nav>ul{
+  display: flex;
+}
+
+.main_header>nav>ul>li{
+  padding: 8px;
+  list-style: none;
+  box-sizing: border-box;
+}
+
+.top_header_link{
+  color: dimgray;
+  text-decoration: none;
+}
+
+.top_header_link:hover{
+  color: dimgray;
+  font-weight: bold;
+}
+
+.top_header_link:active{
+  font-weight: bold;
+  color: dimgray;
+}
+
+.card{
+  display: flex;
+  flex-direction: column;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+  border: 1px solid lightgray;
+  border-radius: 20px;
+  box-sizing: border-box;
+  margin: 30px;
+  margin-left: 200px;
+  margin-right: 100px;
+
+}
+
+.card:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+}
+.card>header{
+  display: flex;
+  justify-content: space-around;
+  box-sizing: border-box;
+  padding: 10px;
+  border-top-left-radius: 20px;
+  border-top-right-radius: 20px;
+  background-color: lightgray;
+  font-family: sans-serif;
+  color: dimgray;
+  font-weight: lighter;
+}
+
+.card>div{
+  display: flex;
+  justify-content: space-between;
+  padding: 10px;
+  border-bottom-left-radius: 20px;
+  border-bottom-right-radius: 20px;
+  background-color: rgba(176, 168, 227, 0.94);
+
+}
+
+.card>div>p,.genre{
+  color: rgba(28,92,28,0.5);
+}
+
+.card>img{
+  height: 30vh;
+  width: 266px;
+}
+
+main{
+  display: flex;
+  flex-direction: row;
+  box-sizing: border-box;
+  margin: 100px;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  align-items: center;
+}
+
+.link{
+  text-decoration: none;
+  color: #2E2F30;
+ }
+
+.link:hover{
+  font-weight: bold;
+}
+
+.completed{
+  display: flex;
+  align-items: center;
+}
+
+.study_material{
+  display: flex;
+  margin: 60px 13%;
+  flex-direction: column;
+}
+
+.study_material>h3{
+  align-self: center;
+  padding: 20px;
+}
+
+.study_material>p{
+  font-family: Arial;
+  font-size: x-large;
+}
+
+.toggle_completed{
+  border: 1px solid rgba(44,255,20,0.85);
+  display: flex;
+  border-radius: 8px;
+  text-decoration: none;
+  background-color: rgba(44,255,20,0.85);
+  padding: 8px;
+  justify-content: center;
+  box-sizing: border-box;
+  display: table;
+  position: fixed;
+  left: 45%;
+  top: 95%;
+  color: #2E2F30;
+}
+
+.toggle_completed:hover{
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+  font-weight: bold;
+}
+
+.new_course{
+  margin: 100px;
+}
+
+.text_area{
+  border: 2px solid lightgray;
+  display: flex;
+  width: 40%;
+  height: 60vh;
+  margin: 20px 29%;
+  font-size: large;
+  outline: lightgray;
+  padding: 20px;
+}
+
+.create{
+  margin: 20px;
+  display: flex;
+  justify-content: center;
+}
+
+.title{
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  outline: none;
+  margin-left: 8px;
+  font-size: large;
+  color: #ffb41e;
+}
+
+.create>p{
+  font-size: x-large;
+  color: #ffb41e;
+}
+
+.new_course>ul{
+  display: flex;
+  list-style: none;
+  justify-content: center;
+}
+
+.new_course>ul>li{
+  margin: 10px;
+}
+
+.create_submit{
+  padding: 10px 50px;
+  border-radius: 4px;
+  display: flex;
+  margin-left: 45%;
+  font-size: large;
+  background-color: greenyellow;
+  border-color: greenyellow;
+}
+
+.create_submit:hover{
+  background-color: rgba(255,238,33,0.85);
+  border-color: rgba(255,238,33,0.85);
+  box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+
+}
+
+.display_card{
+  box-sizing: border-box;
+  border: 2px solid lightgray;
+  margin: 15px 30%;
+  border-bottom: 4px solid #a07e46;
+  height: 60vh;
+  width: 38%;
+}
+
+.display_card>div>h3{
+  background-color: #a07e46;
+  display: table;
+  padding: 5px 20px;
+  margin: 10px 0;
+  color: white;
+}
+
+.display_card_main{
+  margin: 50px;
+}
+
+.display_card_main>div>p{
+  font-size: 40px;
+  font-family: 'OpenSans-Light',Arial,sans-serif;
+  margin-top: 20px;
+  margin-bottom: 30px;
+
+}
+
+.display_card_main_info>div{
+  padding: 15px 0;
+  border-bottom: 1px solid lightgray;
+  font-weight: bold;
+}
+
+.display_card_about{
+  margin-top: 30px;
+  box-sizing: border-box;
+  overflow: hidden;
+  padding: 20px 0;
+  height: 250px;
+}
+
+.display_card_about>div:nth-child(1)>p{
+  font-size: 25px;
+  color: gray;
+}
+
+.display_card_about>div:nth-child(2)>p{
+  color: gray;
+  line-height: 23px;
+}
+
+.display_card_link_and_title{
+  display: flex;
+  justify-content: space-between;
+}
+
+.display_card_link_and_title>div{
+  display: flex;
+  align-items: center;
+}
+
+.display_card_ul{
+  margin-top: 45px;
+}
+
+#description{
+  height: 20vh;
+}
+
+#commitment{
+  height: 20px;
+}

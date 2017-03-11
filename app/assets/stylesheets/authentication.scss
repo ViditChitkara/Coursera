@@ -1,0 +1,95 @@
+// Place all the styles related to the authentication controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+*{
+  margin: 0;
+  padding: 0;
+}
+.loginpage{
+  display: flex;
+  background-color: #9d26ff;
+  height: 100vh;
+  align-items: center;
+  justify-content: center;
+}
+
+.image>i{
+  font-size: 4em;
+}
+
+.image{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.form{
+  display: flex;
+  flex-direction: column;
+  box-sizing: border-box;
+  padding: 20px;
+  height: 40vh;
+  background-color: white;
+  justify-content: space-between;
+  width: 15%;
+  border-radius: 8px;
+}
+
+.username,.password{
+  box-sizing: border-box;
+  margin: 10px;
+  padding: 5px;
+  border-top: transparent;
+  border-left: transparent;
+  border-right: transparent;
+  outline: none;
+  border-color: lightgray ;
+}
+
+.login{
+  border-radius: 4px;
+  border: transparent;
+  background-color: skyblue;
+  font-weight: bold;
+  padding: 10px;
+  width: 50%;
+}
+
+.login:hover{
+  background-color: #ffb41e;
+}
+
+.form>div{
+  align-self: center;
+}
+
+.info{
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.signup-link{
+  text-decoration: none;
+  font-family: arial, sans-serif;
+  color: rgba(125,16,65,0.94);
+}
+
+.signup-link:hover{
+  text-decoration: none;
+  font-family: arial, sans-serif;
+  font-weight: bold;
+}
+
+p{
+  font-family: arial, sans-serif;
+}
+
+.radio{
+  display: flex;
+  justify-content: space-between;
+}
+
+.type{
+  margin: 8px;
+}

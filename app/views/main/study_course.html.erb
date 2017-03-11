@@ -1,0 +1,23 @@
+<header class="main_header">
+  <nav>
+    <ul>
+      <li><%= link_to 'LOGOUT','/logout',class: :top_header_link%></li>
+      <li><%= link_to 'HOME','/student_index',class: :top_header_link %></li>
+      <li><%= link_to 'REVIEW US','#',class: :top_header_link %></li>
+      <li><%= link_to 'TEAM','#',class: :top_header_link %></li>
+    </ul>
+  </nav>
+</header>
+
+<div class="study_material">
+  <% str=@course.name %>
+  <h3><%=str.upcase %></h3>
+  <p><%= @course.content %></p>
+  <% certi=@certificate %>
+
+  <% unless certi.completed %>
+  <%= link_to 'MARK AS COMPLETED',url_for(controller: :main,action: :toggle_completed,:certificate=>certi.id,:course=>@course.id),class: :toggle_completed,method: :post %>
+  <% else %>
+  <%= link_to 'MARK AS UNCOMPLETED',url_for(controller: :main,action: :toggle_completed,:certificate=>certi.id,:course=>@course.id),class: :toggle_completed,method: :post %>
+<% end %>
+</div>

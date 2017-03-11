@@ -1,0 +1,72 @@
+<header class="main_header">
+  <nav>
+    <ul>
+      <li><%= link_to 'LOGOUT','/logout',class: :top_header_link%></li>
+      <li><%= link_to 'CREATE COURSE','/add_course',class: :top_header_link %></li>
+      <li><%= link_to 'CONTACT','#',class: :top_header_link %></li>
+      <li><%= link_to 'REVIEW US','#',class: :top_header_link %></li>
+      <li><%= link_to 'TEAM','#',class: :top_header_link %></li>
+    </ul>
+  </nav>
+</header>
+
+<aside>
+  <h3>MY COURSES</h3>
+  <ul>
+    <% @my_courses.each  do |course|%>
+        <li>
+          <div>
+            <p><%= course.name %></p>
+            <p class="genre">Genre: <%= course.genre %></p>
+            <%= link_to 'VISIT',url_for(controller: :main,action: :update_course,:course=>course.id),class: :link %>
+          </div>
+        </li>
+    <% end %>
+  </ul>
+</aside>
+
+
+<main>
+  <div class="card">
+    <header><p>WEB DEVELOPMENT</p></header>
+    <img src="https://encrypted-tbn3.gstatic.com/images?q=tbn:ANd9GcREyar6vrXtNmuZw_uQ8zeha-cCnZjJ338V6kUkJOPRVxDfQ4uZ">
+    <div>
+      <%= link_to('Browse Courses','/teacher_display_courses/web',class: :link) %>
+      <p><%=@web.length%> courses</p>
+    </div>
+  </div>
+  <div class="card">
+    <header><p>ANDROID</p></header>
+    <img src="http://www.ssdntech.com/images/Androids.jpg">
+    <div>
+      <%= link_to('Browse Courses','/teacher_display_courses/android',class: :link) %>
+      <p><%=@android.length%> courses</p>
+    </div>
+  </div>
+  <div class="card">
+    <header><p>JAVA</p></header>
+    <img src="http://static1.businessinsider.com/image/5858326eca7f0ccb018b690c-800/javalogo-2.jpg">
+    <div>
+      <%= link_to('Browse Courses','/teacher_display_courses/java',class: :link) %>
+      <p><%=@java.length%> courses</p>
+    </div>
+  </div>
+  <div class="card">
+    <header><p>RUBY</p></header>
+    <img src="https://gun.io/static/uploads/rubyonrails31.png">
+    <div>
+      <%= link_to('Browse Courses','/teacher_display_courses/ruby',class: :link) %>
+      <p><%=@ruby.length%> courses</p>
+    </div>
+  </div>
+
+  <div class="card">
+    <header><p>OTHERS</p></header>
+    <img src="https://encrypted-tbn1.gstatic.com/images?q=tbn:ANd9GcT-KkHoDyx5SVvUBHt_LFRe49UblNNvBdt7cHj_tng4CHZu5tq6ag">
+    <div>
+      <%= link_to('Browse Courses','/teacher_display_courses/others',class: :link) %>
+      <p><%=@others.length%> courses</p>
+    </div>
+  </div>
+
+</main>

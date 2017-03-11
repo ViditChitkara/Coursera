@@ -1,0 +1,55 @@
+<header class="main_header">
+  <nav>
+    <ul>
+      <li><%= link_to 'LOGOUT','/logout',class: :top_header_link%></li>
+      <li><%= link_to 'HOME','/teacher_index',class: :top_header_link %></li>
+      <li><%= link_to 'CONTACT','#',class: :top_header_link %></li>
+      <li><%= link_to 'REVIEW US','#',class: :top_header_link %></li>
+      <li><%= link_to 'TEAM','#',class: :top_header_link %></li>
+    </ul>
+  </nav>
+</header>
+<%= form_tag '/add_course_post' do%>
+    <div class="new_course">
+    <div class="create">
+      <p>TITLE:</p><%= text_field_tag 'title' ,nil, class: :title,:required=>true %>
+    </div>
+    <ul>
+
+    <li>
+    <%= label_tag('type','Web') %>
+    <%= radio_button_tag('type','web') %>
+    </li>
+
+    <li>
+    <%= label_tag('type','ANDROID') %>
+    <%= radio_button_tag('type','android') %>
+    </li>
+
+    <li>
+    <%= label_tag('type','JAVA') %>
+    <%= radio_button_tag('type','java') %>
+    </li>
+
+    <li>
+    <%= label_tag('type','RUBY') %>
+    <%= radio_button_tag('type','ruby') %>
+    </li>
+
+    <li>
+    <%= label_tag('type','OTHERS') %>
+    <%= radio_button_tag('type','others',true) %>
+    </li>
+
+    </ul>
+
+    <%= text_field_tag('commitment',nil,class: :text_area,id: :commitment,:required=>true , :placeholder=>'Time Required')  %>
+
+    <%= text_area_tag('description',nil,class: :text_area,id: :description,:required=>true , :placeholder=>'Description')  %>
+
+    <%= text_area_tag('content',nil,class: :text_area,:required=>true , :placeholder=>'Content')  %>
+
+    <%= submit_tag 'Add Course',class: :create_submit %>
+    </div>
+
+<% end %>

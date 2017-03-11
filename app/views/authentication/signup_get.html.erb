@@ -1,0 +1,46 @@
+<div class="loginpage">
+
+
+  <%= form_tag '/signup' ,class: 'form' do%>
+
+      <div class="image">
+        <i class="fa fa-book" aria-hidden="true"></i><br>
+        <h4>WELCOME TO COURSERA</h4>
+      </div>
+
+      <div class="info">
+        <div class="beautify">
+          <i class="fa fa-user-o" aria-hidden="true"></i>
+          <%= text_field_tag('username',nil, class: 'username',placeholder: 'Username',:required=>true) %>
+        </div>
+
+        <div class="beautify">
+          <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+          <%= password_field_tag('password',nil, class: 'password' ,placeholder: 'Password',:required=>true) %>
+        </div>
+
+        <div class="beautify">
+          <i class="fa fa-unlock-alt" aria-hidden="true"></i>
+          <%= password_field_tag('reconfirm_password',nil, class: 'password' ,placeholder: 'Reconfirm Password',:required=>true) %>
+        </div>
+
+        <div class="radio">
+          <div class="type">
+          <%= label_tag('type','STUDENT') %>
+          <%= radio_button_tag('type','student',true) %></div>
+          <div class="type">
+          <%= label_tag('type','TEACHER') %>
+          <%= radio_button_tag('type','teacher',false) %></div>
+        </div>
+
+        <%= submit_tag('SIGNUP',class:'login') %>
+      </div>
+
+      <div>
+        <%= link_to('LOGIN','/login',class: 'signup-link') %>
+      </div>
+  <% end %>
+
+
+
+</div>

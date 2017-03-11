@@ -1,0 +1,34 @@
+<header class="main_header">
+  <nav>
+    <ul>
+      <li><%= link_to 'LOGOUT','/logout',class: :top_header_link%></li>
+      <li><%= link_to 'HOME','/teacher_index',class: :top_header_link %></li>
+      <li><%= link_to 'REVIEW US','#',class: :top_header_link %></li>
+      <li><%= link_to 'TEAM','#',class: :top_header_link %></li>
+    </ul>
+  </nav>
+</header>
+<% i=1 %>
+<% @courses.each do |course|%>
+    <ul class="display_card_ul">
+      <li>
+        <div class="display_card">
+          <div><h3>COURSE <%= i %></h3></div>
+          <% i=i+1 %>
+          <div class="display_card_main">
+            <div class="display_card_link_and_title">
+              <p><%= course.name %></p>
+            </div>
+            <div class="display_card_main_info">
+              <div><p>Commitment: <%= course.commitment %></p></div>
+              <div><p>Creator: <%= course.teacher.name %></p></div>
+            </div>
+            <div class="display_card_about">
+              <div><p>About The Course</p></div>
+              <div><p><%= course.description %></p></div>
+            </div>
+          </div>
+        </div>
+      </li>
+    </ul>
+<% end %>
