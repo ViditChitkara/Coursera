@@ -9,10 +9,11 @@
     </ul>
   </nav>
 </header>
-<%= form_tag '/add_course_post' do%>
+<%= form_tag '/update_course_post', id: "update_form" do%>
     <div class="new_course">
     <div class="create">
-      <p>TITLE:</p><%= text_field_tag 'title' ,nil, class: :title,:required=>true %>
+      <p>TITLE:</p><%= text_field_tag 'title' ,@course.name, class: :title,id: "update_title",:required=>true %>
+      <p style="display:none" id= "course"><%= @course.id %></p>
     </div>
     <ul>
 
@@ -42,12 +43,14 @@
     </li>
 
     </ul>
+    <% commitment=@course.commitment %>
+    <% description=@course.description %>
+    <%= text_field_tag('commitment',commitment,class: :text_area, id: "update_commitment",:required=>true , :placeholder=>'Time Required')  %>
 
-    <%= text_field_tag('commitment',nil,class: :text_area,id: :commitment,:required=>true , :placeholder=>'Time Required')  %>
+    <%= text_area_tag('description',description,class: :text_area,id: "update_description",:required=>true , :placeholder=>'Description')  %>
 
-    <%= text_area_tag('description',nil,class: :text_area,id: :description,:required=>true , :placeholder=>'Description')  %>
+    <%= submit_tag 'UPDATE COURSE',class: :create_submit %>
 
-    <%= submit_tag 'Add Course',class: :create_submit %>
     </div>
 
 <% end %>

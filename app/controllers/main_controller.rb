@@ -24,15 +24,28 @@ class MainController < ApplicationController
 
   def add_course_post
     title=params[:title]
-    content=params[:content]
+    #content=params[:content]
     genre=params[:type]
     commitment=params[:commitment]
     description=params[:description]
 
-    Course.create(:name=>title , :content=>content , :genre=>genre , :teacher_id=>session[:user_id],:commitment=>commitment,:description=>description)
+    Course.create(:name=>title , :genre=>genre , :teacher_id=>session[:user_id],:commitment=>commitment,:description=>description)
 
     redirect_to '/teacher_index'
 
+  end
+
+  def update_course
+
+    @course=Course.find_by_id(params[:course])
+  end
+
+  def update_course_post
+      id=params[:course_id].to_i
+      course=Course.find(id)   
+
+      course.update(name: params[:title] , :genre=>params[:genre] , description: params[:description] , commitment: params[:commitment])
+      render json:course
   end
 
   def display_courses
@@ -58,6 +71,9 @@ class MainController < ApplicationController
     else
     @course=Course.find_by_id(params[:course])
     end
+
+     @lectures=@course.lectures.all
+
     @certificate=Certificate.find_by_course_id_and_student_id(@course.id,current_user.id)
   end
 
@@ -73,8 +89,10 @@ class MainController < ApplicationController
     redirect_to '/student_index'
   end
 
-  def update_course
 
+  def study_lecture
+    @course=Course.find_by_id(params[:course])
+    @lectures=@course.lectures.all
+    @current_lecture=Lecture.find_by_id(params[:lecture])
   end
-
 end

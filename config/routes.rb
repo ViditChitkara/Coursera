@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get '/signup'=>'authentication#signup_get'
   post '/signup'=>'authentication#signup'
   get '/logout'=>'authentication#logout'
+
+
   get '/student_index'=>'main#student_index'
   get '/teacher_index'=>'main#teacher_index'
   get '/add_course'=>'main#add_course'
@@ -15,6 +17,10 @@ Rails.application.routes.draw do
   get '/study_course'=>'main#study_course'
   post '/toggle_completed'=>'main#toggle_completed'
   get '/update_course'=>'main#update_course'
+
+  post '/update_course_post'=>'main#update_course_post'
+
+  get '/lecture'=>'main#study_lecture'
 
 
   # The priority is based upon order of creation: first created -> highest priority.

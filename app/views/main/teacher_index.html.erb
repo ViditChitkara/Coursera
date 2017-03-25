@@ -18,7 +18,8 @@
           <div>
             <p><%= course.name %></p>
             <p class="genre">Genre: <%= course.genre %></p>
-            <%= link_to 'VISIT',url_for(controller: :main,action: :update_course,:course=>course.id),class: :link %>
+            <% str="course_#{course.id}" %>
+            <%= link_to 'VISIT',url_for(controller: :main,action: :update_course,:course=>course.id),class: :link,id: str %>
           </div>
         </li>
     <% end %>

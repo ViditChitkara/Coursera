@@ -20,7 +20,6 @@
 
         <% if lecture==@current_lecture%>
           <% current_lecture_number+=counter.to_s %>
-
         <% end %>
 
         <% s="Lecture "+counter.to_s %>
@@ -40,12 +39,6 @@
 <div class="study_material">
   <% str=@course.name %>
   <h3><%=str.upcase %></h3>
-  <p><%= @course.description %></p>
-  <% certi=@certificate %>
-
-  <% unless certi.completed %>
-  <%= link_to 'MARK AS COMPLETED',url_for(controller: :main,action: :toggle_completed,:certificate=>certi.id,:course=>@course.id),class: :toggle_completed,method: :post %>
-  <% else %>
-  <%= link_to 'MARK AS UNCOMPLETED',url_for(controller: :main,action: :toggle_completed,:certificate=>certi.id,:course=>@course.id),class: :toggle_completed,method: :post %>
-<% end %>
+    <h3>Lecture <%=current_lecture_number %></h3>
+  <p><%= @current_lecture.content %></p>
 </div>
