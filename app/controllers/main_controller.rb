@@ -96,6 +96,7 @@ class MainController < ApplicationController
     @course=Course.find_by_id(params[:course])
     @lectures=@course.lectures.all
     @current_lecture=Lecture.find_by_id(params[:lecture])
+    @youtube_link=youtube_embed(@current_lecture.link)
   end
 
   def create_lecture
@@ -107,7 +108,8 @@ class MainController < ApplicationController
     title=params[:lecture_title]
     content=params[:lecture_content]
     course_id=params[:course_id]
-    Lecture.create(:title=>title , :content=>content , :course_id=>course_id , :visited=>false)
+    link=params[:link]
+    Lecture.create(:title=>title , :content=>content , :course_id=>course_id , :visited=>false , :link=>link)
     redirect_to '/teacher_index'
   end
 
@@ -123,8 +125,22 @@ class MainController < ApplicationController
       id=params[:lec_id].to_i
       lecture=Lecture.find(id)   
 
-      lecture.update(title: params[:lectureTitle] , content: params[:lectureContent])
+      lecture.update(title: params[:lectureTitle] , content: params[:lectureContent] , link: params[:link])
       render json:lecture
+  end
+
+  def youtube_embed(youtube_url)
+    if youtube_url
+      if youtube_url[/youtu\.be\/([^\?]*)/]
+        youtube_id = $1
+      else
+        # Regex from # http://stackoverflow.com/questions/3452546/javascript-regex-how-to-get-youtube-video-id-from-url/4811367#4811367
+        youtube_url[/^.*((v\/)|(embed\/)|(watch\?))\??v?=?([^\&\?]*).*/]
+        youtube_id = $5
+      end
+    end
+    youtube_id
+
   end
 
 end

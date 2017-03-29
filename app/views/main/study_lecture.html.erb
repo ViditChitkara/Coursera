@@ -41,4 +41,8 @@
   <h3><%=str.upcase %></h3>
     <h3>Lecture <%=current_lecture_number %></h3>
   <p><%= @current_lecture.content %></p>
+  <% if @youtube_link %>
+     <iframe title="YouTube video player" width="auto" height="390" src="http://www.youtube.com/embed/<%=@youtube_link%>" frameborder="2" allowfullscreen></iframe>
+  <% end %>   
+
 </div>

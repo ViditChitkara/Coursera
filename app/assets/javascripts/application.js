@@ -112,12 +112,14 @@
 				        var url = "/update_lecture_post";
 				        var lectureTitle = document.getElementById("update_lecture_title");
 				        var lectureContent = document.getElementById("update_lecture_content");	        
+				        var lectureLink = document.getElementById("lecture_link");	        
 				        var lecture_id=lectureId;
 				     	var course=document.getElementById("lecture");
 				     	console.log(lecture_id);
 				        data = {
 				        	lectureTitle: lectureTitle.value,	
-				        	lectureContent: lectureContent.value,		
+				        	lectureContent: lectureContent.value,	
+				        	link: lectureLink.value,	
 				        	lec_id: lecture_id,			        	
 				         }
 

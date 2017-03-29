@@ -16,6 +16,9 @@
       <p>LECTURE TITLE:</p><%= text_field_tag 'lecture_title' ,nil, class: :title,:required=>true %>
     </div>
 
+   <%= text_field_tag('link',nil,class: :text_area,id: :link, :placeholder=>'You Tube Link')  %>
+
+
     <%= text_area_tag('lecture_content',nil , class: :text_area,id: :lecture_content,:required=>true , :placeholder=>'Content')  %>
 
     <%= submit_tag 'Add Lecture',class: :create_submit %>

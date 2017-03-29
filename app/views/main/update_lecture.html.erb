@@ -45,6 +45,9 @@
 
     </div>
 
+    <%= text_field_tag('link',@lecture.link,class: :text_area,id: "lecture_link", :placeholder=>'You Tube Link')  %>
+
+
     <%= text_area_tag('lecture_content',@lecture.content , class: :text_area,id: "update_lecture_content",:required=>true , :placeholder=>'Content')  %>
 
     <%= submit_tag 'Update Lecture',class: :create_submit %>
