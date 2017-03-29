@@ -1,0 +1,24 @@
+<header class="main_header">
+  <nav>
+    <ul>
+      <li><%= link_to 'LOGOUT','/logout',class: :top_header_link%></li>
+      <li><%= link_to 'HOME','/teacher_index',class: :top_header_link %></li>
+      <li><%= link_to 'CONTACT','#',class: :top_header_link %></li>
+      <li><%= link_to 'REVIEW US','#',class: :top_header_link %></li>
+      <li><%= link_to 'TEAM','#',class: :top_header_link %></li>
+    </ul>
+  </nav>
+</header>
+<% str="/create_lecture_post/#{@course.id}" %>
+<%= form_tag str do%>
+    <div class="new_course">
+    <div class="create">
+      <p>LECTURE TITLE:</p><%= text_field_tag 'lecture_title' ,nil, class: :title,:required=>true %>
+    </div>
+
+    <%= text_area_tag('lecture_content',nil , class: :text_area,id: :lecture_content,:required=>true , :placeholder=>'Content')  %>
+
+    <%= submit_tag 'Add Lecture',class: :create_submit %>
+    </div>
+
+<% end %>

@@ -22,6 +22,15 @@ Rails.application.routes.draw do
 
   get '/lecture'=>'main#study_lecture'
 
+  get '/create_lecture'=>'main#create_lecture'
+
+  post '/create_lecture_post/:course_id'=>'main#create_lecture_post'
+
+
+  get '/update_lecture'=>'main#update_lecture'
+
+  post '/update_lecture_post'=>'main#update_lecture_post'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".

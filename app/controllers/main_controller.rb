@@ -38,6 +38,8 @@ class MainController < ApplicationController
   def update_course
 
     @course=Course.find_by_id(params[:course])
+    @lectures=@course.lectures.all
+
   end
 
   def update_course_post
@@ -95,4 +97,34 @@ class MainController < ApplicationController
     @lectures=@course.lectures.all
     @current_lecture=Lecture.find_by_id(params[:lecture])
   end
+
+  def create_lecture
+    @course=Course.find_by_id(params[:course])
+  end
+
+  def create_lecture_post
+
+    title=params[:lecture_title]
+    content=params[:lecture_content]
+    course_id=params[:course_id]
+    Lecture.create(:title=>title , :content=>content , :course_id=>course_id , :visited=>false)
+    redirect_to '/teacher_index'
+  end
+
+
+  def update_lecture
+    @course=Course.find_by_id(params[:course])
+    @lectures=@course.lectures.all
+    @lecture=Lecture.find_by_id(params[:lecture])
+
+  end
+
+  def update_lecture_post
+      id=params[:lec_id].to_i
+      lecture=Lecture.find(id)   
+
+      lecture.update(title: params[:lectureTitle] , content: params[:lectureContent])
+      render json:lecture
+  end
+
 end
