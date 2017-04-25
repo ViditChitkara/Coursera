@@ -31,6 +31,13 @@
   </ul>
 </aside>
 
+<%= form_tag '/student_index', method: :get , class: :autosearch do %>
+
+    <%=   autocomplete_field_tag 'course', '', autocomplete_course_lecture_path, :size => 10 %>
+    <br>
+    <%= submit_tag 'search' %>
+<% end %>
+
 
 <main>
 <div class="card">

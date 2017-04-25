@@ -1,5 +1,6 @@
 class MainController < ApplicationController
   before_action 'authenticate_user'
+  autocomplete :course,:lecture
 
   def student_index
     @web=Course.where(:genre=>'web').order('created_at DESC')
@@ -46,8 +47,12 @@ class MainController < ApplicationController
       id=params[:course_id].to_i
       course=Course.find(id)   
 
-      course.update(name: params[:title] , :genre=>params[:genre] , description: params[:description] , commitment: params[:commitment])
-      render json:course
+      course.update(name: params[:title] , :genre=>params[:type] , description: params[:description] , commitment: params[:commitment])
+      respond_to do |format|
+        format.js{
+
+        }
+      end
   end
 
   def display_courses
@@ -124,9 +129,13 @@ class MainController < ApplicationController
   def update_lecture_post
       id=params[:lec_id].to_i
       lecture=Lecture.find(id)   
+      lecture.update(title: params[:lecture_title] , content: params[:lecture_content] , link: params[:link])
+      
+      respond_to do |format|
+      format.js{
 
-      lecture.update(title: params[:lectureTitle] , content: params[:lectureContent] , link: params[:link])
-      render json:lecture
+      }
+    end
   end
 
   def youtube_embed(youtube_url)

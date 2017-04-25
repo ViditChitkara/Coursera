@@ -37,11 +37,11 @@
   </ul>
 </aside>
 
-<%= form_tag '/update_lecture_post', id: "update_lecture_form" do%>
+<%= form_tag '/update_lecture_post', :remote=>true , id: "update_lecture_form" do%>
      <div class="new_course">
     <div class="create">
       <p>LECTURE TITLE:</p><%= text_field_tag 'lecture_title' ,@lecture.title, id: "update_lecture_title" , class: :title,:required=>true %>
-      <p style="display:none" id= "lecture"><%= @course.id %></p>
+      <%= hidden_field_tag :lec_id , @lecture.id %>
 
     </div>
 

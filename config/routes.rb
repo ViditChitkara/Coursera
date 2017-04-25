@@ -31,6 +31,8 @@ Rails.application.routes.draw do
 
   post '/update_lecture_post'=>'main#update_lecture_post'
 
+  get '/autocomplete_course_lecture' => 'main#autocomplete_course_lecture'
+
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
